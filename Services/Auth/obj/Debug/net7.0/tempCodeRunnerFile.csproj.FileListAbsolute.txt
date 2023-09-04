@@ -1,0 +1,7 @@
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.csproj.AssemblyReference.cache
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.GeneratedMSBuildEditorConfig.editorconfig
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.AssemblyInfoInputs.cache
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.AssemblyInfo.cs
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.csproj.CoreCompileInputs.cache
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.MvcApplicationPartsAssemblyInfo.cs
+/home/petrolhead/Documents/Microservices/Services/Auth/obj/Debug/net7.0/tempCodeRunnerFile.MvcApplicationPartsAssemblyInfo.cache
