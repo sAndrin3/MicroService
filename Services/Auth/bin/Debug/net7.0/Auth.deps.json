@@ -17,6 +17,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.10",
+          "Microsoft.Extensions.Options": "7.0.1",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {

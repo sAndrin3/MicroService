@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Auth.Models;
 using Auth.Services.IService;
 using Auth.Services;
+using Auth.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,9 +24,13 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 
 //RegisterServices
 builder.Services.AddScoped<IUserInterface, UserService>();
+builder.Services.AddScoped<IJWtTokenGenerator, JwtService>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// configure JWtOptions
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 
 var app = builder.Build();
 

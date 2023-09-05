@@ -13,12 +13,14 @@ namespace Auth.Services{
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
-        public UserService(ApplicationDbContext database , UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
+        private readonly IJWtTokenGenerator _jwtGenerator;
+        public UserService(ApplicationDbContext database , UserManager<ApplicationUser> userManager, IJWtTokenGenerator tokenGenerator, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _context = database;
             _mapper = mapper;
+            _jwtGenerator = tokenGenerator;
         }
 
         public async Task<bool> AssignUserRole(string email, string Rolename)
@@ -55,10 +57,13 @@ namespace Auth.Services{
             {
                 new LoginResponseDto();
             }
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtGenerator.GenerateToken(user, roles);
+            
             var loggedUser = new LoginResponseDto()
             {
                 User = _mapper.Map<UserDto>(user),
-                Token = "coming soon"
+                Token = token
             };
 
             return loggedUser;

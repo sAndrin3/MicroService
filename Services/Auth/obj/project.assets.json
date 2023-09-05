@@ -4222,6 +4222,7 @@
       "Microsoft.EntityFrameworkCore >= 7.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.10",
+      "Microsoft.Extensions.Options >= 7.0.1",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -4299,6 +4300,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[7.0.10, )"
+          },
+          "Microsoft.Extensions.Options": {
+            "target": "Package",
+            "version": "[7.0.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

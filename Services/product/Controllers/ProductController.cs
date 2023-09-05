@@ -42,7 +42,7 @@ namespace JituProduct.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<ResponseDto>> AddCoupon(ProductRequestDto productRequestDto)
+        public async Task<ActionResult<ResponseDto>> AddProduct(ProductRequestDto productRequestDto)
         {
             try
             {

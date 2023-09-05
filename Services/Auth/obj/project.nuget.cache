@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WtuGbFQ7NbXmwfeiVcAW+kHdAIEFq2910li0uCN78LO+0ComOY4ilw2INydrVknm/+TE1azyeOY4eouE6+PBDA==",
+  "dgSpecHash": "zlMJXVQWAl42CStNZLknG9MSbBS5b+TRtO/OnvEWThpjj/eNzd6vUTk/pOThMQuww/A6AkvC1qkvoxqpFGwOwg==",
   "success": true,
   "projectFilePath": "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj",
   "expectedPackageFiles": [
