@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj": {}
+    "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj": {}
   },
   "projects": {
-    "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj": {
+    "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj",
+        "projectUniqueName": "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj",
         "projectName": "Auth",
-        "projectPath": "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj",
+        "projectPath": "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj",
         "packagesPath": "/home/petrolhead/.nuget/packages/",
-        "outputPath": "/home/petrolhead/Documents/Microservices/Services/Auth/obj/",
+        "outputPath": "/home/petrolhead/Documents/microservices/Services/Auth/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/petrolhead/.nuget/NuGet/NuGet.Config"

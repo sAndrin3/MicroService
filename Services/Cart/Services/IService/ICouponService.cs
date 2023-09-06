@@ -1,6 +1,6 @@
 ﻿using Cart.Models.Dtos;
 
-namespace Cart.Services.Iservice
+namespace Cart.Services.IService
 {
     public interface ICouponService
     {

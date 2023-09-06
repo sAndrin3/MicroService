@@ -1,9 +1,9 @@
 ﻿using Cart.Models.Dtos;
 
-namespace Cart.Services.Iservice
+namespace Cart.Services.IService
 {
     public interface IProductInterface
     {
-        Task<IEnumerable<ProductDto>> GetProductaAsync();
+        Task<IEnumerable<ProductDto>> GetProductAsync();
     }
 }

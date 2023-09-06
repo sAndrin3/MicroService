@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AOCQAOr0NgSxPxi2jTVCl1mT3xdZqM74Btr5GFQrcu5Yo7To8tufNxub0PUmu4EMc0i+qvBiEfiqcArAWdiCnw==",
+  "dgSpecHash": "I9s7egJPTodji/y3eqj7OiL1Jb+xH+nZujKrFhlMyxyBSacQr4MilxJwhChtiO0esn0DpqUA94iBXiKzPjPUzg==",
   "success": true,
-  "projectFilePath": "/home/petrolhead/Documents/Microservices/Services/Cart/Cart.csproj",
+  "projectFilePath": "/home/petrolhead/Documents/microservices/Services/Cart/Cart.csproj",
   "expectedPackageFiles": [
     "/home/petrolhead/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/petrolhead/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

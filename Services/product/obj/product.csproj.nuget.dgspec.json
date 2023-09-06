@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/petrolhead/Documents/Microservices/Services/product/product.csproj": {}
+    "/home/petrolhead/Documents/microservices/Services/product/product.csproj": {}
   },
   "projects": {
-    "/home/petrolhead/Documents/Microservices/Services/product/product.csproj": {
+    "/home/petrolhead/Documents/microservices/Services/product/product.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/petrolhead/Documents/Microservices/Services/product/product.csproj",
+        "projectUniqueName": "/home/petrolhead/Documents/microservices/Services/product/product.csproj",
         "projectName": "product",
-        "projectPath": "/home/petrolhead/Documents/Microservices/Services/product/product.csproj",
+        "projectPath": "/home/petrolhead/Documents/microservices/Services/product/product.csproj",
         "packagesPath": "/home/petrolhead/.nuget/packages/",
-        "outputPath": "/home/petrolhead/Documents/Microservices/Services/product/obj/",
+        "outputPath": "/home/petrolhead/Documents/microservices/Services/product/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/petrolhead/.nuget/NuGet/NuGet.Config"

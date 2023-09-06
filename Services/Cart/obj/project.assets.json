@@ -4275,11 +4275,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/petrolhead/Documents/Microservices/Services/Cart/Cart.csproj",
+      "projectUniqueName": "/home/petrolhead/Documents/microservices/Services/Cart/Cart.csproj",
       "projectName": "Cart",
-      "projectPath": "/home/petrolhead/Documents/Microservices/Services/Cart/Cart.csproj",
+      "projectPath": "/home/petrolhead/Documents/microservices/Services/Cart/Cart.csproj",
       "packagesPath": "/home/petrolhead/.nuget/packages/",
-      "outputPath": "/home/petrolhead/Documents/Microservices/Services/Cart/obj/",
+      "outputPath": "/home/petrolhead/Documents/microservices/Services/Cart/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/petrolhead/.nuget/NuGet/NuGet.Config"

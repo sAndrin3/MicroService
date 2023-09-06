@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Cart.Data;
 using Cart.Extensions;
-// using TheJitu_Commerce_Cart.Services;
-// using TheJitu_Commerce_Cart.Services.Iservice;
+using Cart.Services;
+using Cart.Services.IService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +22,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+//Registering the Base Url for the services
+builder.Services.AddHttpClient("Product", c => c.BaseAddress = new Uri(builder.Configuration["ServiceUrl:ProductApi"]));
+builder.Services.AddHttpClient("Coupon", c => c.BaseAddress = new Uri(builder.Configuration["ServiceUrl:CouponApi"]));
+//Services
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IProductInterface,ProductService>();
+builder.Services.AddScoped<ICouponService, CouponService>();   
 
 
 var app = builder.Build();

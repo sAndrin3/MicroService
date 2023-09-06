@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zlMJXVQWAl42CStNZLknG9MSbBS5b+TRtO/OnvEWThpjj/eNzd6vUTk/pOThMQuww/A6AkvC1qkvoxqpFGwOwg==",
+  "dgSpecHash": "GNsVJYwsDx2iQMbJFFGWbcJLTZTYIAOrplcCGDMy4jBXH5VaoG1LkLglDcO9GB1Zdw+WHh1M/3fZ9FaPFA4QxA==",
   "success": true,
-  "projectFilePath": "/home/petrolhead/Documents/Microservices/Services/Auth/Auth.csproj",
+  "projectFilePath": "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj",
   "expectedPackageFiles": [
     "/home/petrolhead/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/petrolhead/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

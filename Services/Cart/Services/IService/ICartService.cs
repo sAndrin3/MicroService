@@ -1,11 +1,11 @@
 ﻿using Cart.Models.Dtos;
 
-namespace Cart.Services.Iservice
+namespace Cart.Services.IService
 {
-    public interface ICartservice
+    public interface ICartService
     {
 
-        Task<bool> CartU    
+        Task<bool> CartUpsert(CartDto cartDto);   
         Task<CartDto> GetUserCart(Guid userId);
 
         Task<bool> ApplyCoupons(CartDto cartDto);
