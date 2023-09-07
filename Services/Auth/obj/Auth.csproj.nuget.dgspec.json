@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj": {}
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Auth/Auth.csproj": {}
   },
   "projects": {
-    "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj": {
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj",
-        "projectName": "Auth",
-        "projectPath": "/home/petrolhead/Documents/microservices/Services/Auth/Auth.csproj",
+        "projectUniqueName": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj",
+        "projectName": "Intergration",
+        "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj",
         "packagesPath": "/home/petrolhead/.nuget/packages/",
-        "outputPath": "/home/petrolhead/Documents/microservices/Services/Auth/obj/",
+        "outputPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/petrolhead/.nuget/NuGet/NuGet.Config"
@@ -26,6 +26,73 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Auth/Auth.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Auth/Auth.csproj",
+        "projectName": "Auth",
+        "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Auth/Auth.csproj",
+        "packagesPath": "/home/petrolhead/.nuget/packages/",
+        "outputPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Auth/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/petrolhead/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj": {
+                "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

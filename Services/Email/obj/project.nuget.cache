@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "/E2oBv2eqAHJrDR0Os5iF6m/Sgr+LPXOOY5f5bw1oEPRbS9n7bqM/zbtS0PeVz8A+Ud1vMxh5sWv/Utbr412aA==",
+  "success": true,
+  "projectFilePath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/Email/Email.csproj",
+  "expectedPackageFiles": [
+    "/home/petrolhead/.nuget/packages/microsoft.aspnetcore.openapi/7.0.10/microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/home/petrolhead/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

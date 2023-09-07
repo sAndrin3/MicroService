@@ -6,6 +6,7 @@ using Auth.Models;
 using Auth.Services.IService;
 using Auth.Services;
 using Auth.Utility;
+using TheJituMessageBus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 //RegisterServices
 builder.Services.AddScoped<IUserInterface, UserService>();
 builder.Services.AddScoped<IJWtTokenGenerator, JwtService>();
+builder.Services.AddScoped<IMessageBus, MessageBus>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

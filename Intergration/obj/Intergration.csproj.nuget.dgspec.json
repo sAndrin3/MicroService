@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/petrolhead/Documents/microservices/Intergration/Intergration.csproj": {}
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj": {}
   },
   "projects": {
-    "/home/petrolhead/Documents/microservices/Intergration/Intergration.csproj": {
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/petrolhead/Documents/microservices/Intergration/Intergration.csproj",
+        "projectUniqueName": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj",
         "projectName": "Intergration",
-        "projectPath": "/home/petrolhead/Documents/microservices/Intergration/Intergration.csproj",
+        "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/Intergration.csproj",
         "packagesPath": "/home/petrolhead/.nuget/packages/",
-        "outputPath": "/home/petrolhead/Documents/microservices/Intergration/obj/",
+        "outputPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Intergration/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/petrolhead/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
