@@ -2,6 +2,7 @@ using EmailService.Data;
 using EmailService.Extensions;
 using EmailService.Messaging;
 using Microsoft.EntityFrameworkCore;
+using EmailService.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 var dbContextBuilder = new DbContextOptionsBuilder<AppDbContext>();
 dbContextBuilder.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
+builder.Services.AddSingleton(new Emails(dbContextBuilder.Options));
 // Services
 builder.Services.AddSingleton<IAzureMessageBusConsumer, AzureMessageBusConsumer>();
 

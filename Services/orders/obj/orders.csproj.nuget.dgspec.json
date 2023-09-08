@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/petrolhead/Documents/microservices/Services/orders/orders.csproj": {}
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/orders/orders.csproj": {}
   },
   "projects": {
-    "/home/petrolhead/Documents/microservices/Services/orders/orders.csproj": {
+    "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/orders/orders.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/petrolhead/Documents/microservices/Services/orders/orders.csproj",
+        "projectUniqueName": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/orders/orders.csproj",
         "projectName": "orders",
-        "projectPath": "/home/petrolhead/Documents/microservices/Services/orders/orders.csproj",
+        "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/orders/orders.csproj",
         "packagesPath": "/home/petrolhead/.nuget/packages/",
-        "outputPath": "/home/petrolhead/Documents/microservices/Services/orders/obj/",
+        "outputPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/orders/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/petrolhead/.nuget/NuGet/NuGet.Config"
@@ -38,9 +38,59 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.16.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

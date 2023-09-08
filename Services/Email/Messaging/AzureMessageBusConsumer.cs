@@ -15,7 +15,8 @@ namespace EmailService.Messaging
         private readonly string QueueName;
         private readonly ServiceBusProcessor _registrationProcessor;
         private readonly EmailSendService _emailService;
-        public AzureMessageBusConsumer(IConfiguration configuration )
+        public readonly Emails _saveToDb;
+        public AzureMessageBusConsumer(IConfiguration configuration, Emails service )
         {
 
             _configuration = configuration;
@@ -26,6 +27,7 @@ namespace EmailService.Messaging
             var serviceBusClient = new ServiceBusClient(Connectionstring);
             _registrationProcessor = serviceBusClient.CreateProcessor(QueueName);
             _emailService = new EmailSendService();
+            _saveToDb = service;
           
 
         }
@@ -64,13 +66,18 @@ namespace EmailService.Messaging
             try
             {
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append("<img src=\"https://cdn.pixabay.com/photo/2020/03/21/10/40/bmw-4953337_640.png");
+                stringBuilder.Append("<img src=\"https://cdn.pixabay.com/photo/2016/02/22/20/22/bmw-1216469_640.jpg\" width=\"1000\" height=\"600\">");
                 stringBuilder.Append("<h1> Hello " + userMessage.Name + "</h1>");
                 stringBuilder.AppendLine("<br/>Welcome to The Jitu Shopping Site ");
 
                 stringBuilder.Append("<br/>");
                 stringBuilder.Append('\n');
                 stringBuilder.Append("<p> Start Shopping here</p>");
+                var emailLoggers = new EmailLoggers(){
+                    Email = userMessage.Email,
+                    message = stringBuilder.ToString()
+                };
+                await _saveToDb.SaveData(emailLoggers);
                 await _emailService.sendEmail(userMessage, stringBuilder.ToString());
                 //delete the message from the queue
                  await arg.CompleteMessageAsync(message);
