@@ -31,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMigration();
+app.useAzure();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
