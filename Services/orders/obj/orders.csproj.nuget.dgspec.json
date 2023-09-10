@@ -84,6 +84,10 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[4.2.0, )"

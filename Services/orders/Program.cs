@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Order.Data;
 using Order.Extensions;
-// using TheJitu_commerce_Order.Services;
-// using TheJitu_commerce_Order.Services.Iservice;
-// using TheJituMessageBus;
+using Order.Services.Iservice;
+using Order.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,12 +19,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-// builder.Services.AddScoped<IMessageBus, MessageBus>();
+
+
+// Service
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+
 
 
 //custom builder services
 builder.AddAppAuthentication();
 builder.AddSwaggenGenExtension();
+
 var app = builder.Build();
 
 
@@ -42,3 +48,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
