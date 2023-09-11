@@ -4231,11 +4231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/petrolhead/Documents/Microservices/Services/coupon/coupon.csproj",
+      "projectUniqueName": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/coupon/coupon.csproj",
       "projectName": "coupon",
-      "projectPath": "/home/petrolhead/Documents/Microservices/Services/coupon/coupon.csproj",
+      "projectPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/coupon/coupon.csproj",
       "packagesPath": "/home/petrolhead/.nuget/packages/",
-      "outputPath": "/home/petrolhead/Documents/Microservices/Services/coupon/obj/",
+      "outputPath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/coupon/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/petrolhead/.nuget/NuGet/NuGet.Config"

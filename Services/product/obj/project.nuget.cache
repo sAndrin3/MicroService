@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V7JxUibasTxYlVEDttrjez3N7Imf2g/B9FjBGQ5PWBo/puephU5d+BKM8/qubywOLpY0WVik6jwv4ASQfIOFvA==",
+  "dgSpecHash": "wsQ197fS/zeR12NOcKhQNrhFSc9+YH9K5lhhz3hiyXlmCMI0jWl8rDrsGLDWkedaBvir2VyunkfLhvQtH93jAQ==",
   "success": true,
-  "projectFilePath": "/home/petrolhead/Documents/microservices/Services/product/product.csproj",
+  "projectFilePath": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Services/product/product.csproj",
   "expectedPackageFiles": [
     "/home/petrolhead/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/petrolhead/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
