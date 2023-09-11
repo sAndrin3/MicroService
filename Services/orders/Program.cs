@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Order.Data;
 using Order.Extensions;
-using Order.Services.Iservice;
-using Order.Services;
+using orders.Services.IService;
+using orders.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

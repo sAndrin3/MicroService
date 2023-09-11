@@ -1,15 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Order.Models.Dto;
 
-
-namespace Order.Services.Iservice
+namespace orders.Services.IService
 {
     public interface IOrderService
     {
-        Task<OrderHeaderDto> CreateOrderHeader(CartDto cartDto);
-
-
-        // Task<StripeRequestDto> StripePayment(StripeRequestDto stripeRequestDto);
-
-        // Task<bool> ValidatePayment(Guid OrderId);
+          Task<OrderHeaderDto> CreateOrderHeader(CartDto cartDto);
     }
 }
