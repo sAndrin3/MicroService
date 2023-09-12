@@ -15,7 +15,7 @@ namespace Cart.Services
         }
         public async Task<IEnumerable<ProductDto>> GetProductAsync(){
             // Create a client
-            var client = _clientFactory.CreateClient("product");
+            var client = _clientFactory.CreateClient("Product");
             var response = await client.GetAsync("/api/Product");
             var content = await response.Content.ReadAsStringAsync();
             var responseDto = JsonConvert.DeserializeObject<ResponseDto>(content);
