@@ -34,6 +34,8 @@ builder.AddSwaggenGenExtension();
 
 var app = builder.Build();
 
+Stripe.StripeConfiguration.ApiKey = "sk_test_51NrhO5G2Lky7lJV4c0OCnwwlapNtPvUawnsz0EpL7Y8Pk7DWNWtP5v6KAdRYRPWnZky6jFWPA7VzTJEae2x25LBY00ux2gqBcs";
+// builder.Configuration.GetSection("stripe:Key").Get<string>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

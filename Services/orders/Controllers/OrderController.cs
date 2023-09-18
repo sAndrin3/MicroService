@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Order.Models.Dto;
+using Order.Models.Dtos;
 using orders.Services.IService;
 
 namespace Order.Controllers
@@ -33,6 +34,24 @@ namespace Order.Controllers
             {
                 _responseDto.IsSuccess = false;
                 _responseDto.Message = ex.InnerException.Message;
+                return BadRequest(_responseDto);
+            }
+            return Ok(_responseDto);
+        }
+
+
+        [HttpPost("StripePayment")]
+        public async Task<ActionResult<ResponseDto>> StripePayment(StripeRequestDto stripeRequestDto)
+        {
+            try
+            {
+               var response =await _orderService.StripePayment(stripeRequestDto);
+                _responseDto.Result=response;   
+            }
+            catch (Exception ex)
+            {
+                _responseDto.IsSuccess = false;
+                _responseDto.Message = ex.Message;
                 return BadRequest(_responseDto);
             }
             return Ok(_responseDto);

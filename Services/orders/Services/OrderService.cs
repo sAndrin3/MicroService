@@ -4,6 +4,8 @@ using Order.Models.Dto;
 using Order.Models.Dtos;
 using orders.Services.IService;
 using Order.Data;
+using Stripe.Checkout;
+using Microsoft.EntityFrameworkCore;
 
 namespace orders.Services
 {
@@ -32,6 +34,63 @@ namespace orders.Services
             orderHeaderDto.OrderHeaderId= item.OrderHeaderId;
             return orderHeaderDto;
         }
-    }
+
+        public async Task<StripeRequestDto> StripePayment(StripeRequestDto stripeRequestDto)
+        {
+            var options = new SessionCreateOptions(){
+                SuccessUrl = stripeRequestDto.ApprovedUrl,
+                CancelUrl = stripeRequestDto.CancelUrl,
+                Mode = "payment",
+                LineItems = new List<SessionLineItemOptions>(),
+                PaymentMethodTypes = new List<string>(){"card"}
+            };
+
+            foreach(var item in stripeRequestDto.OrderHeader.OrderDetails){
+                var SessionLineItem = new SessionLineItemOptions(){
+                    PriceData = new SessionLineItemPriceDataOptions(){
+                        UnitAmount = (long)(item.Price * 100),
+                        Currency = "kes",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions(){
+                            Name = item.ProductName
+                        },
+                        
+                    },
+                    Quantity = item.Count
+                };
+                options.LineItems.Add(SessionLineItem);
+            }
+
+              var DiscountObj = new List<SessionDiscountOptions>()
+           {
+               new SessionDiscountOptions()
+               {
+                   Coupon= stripeRequestDto.OrderHeader.CouponCode
+               }
+           };
+
+            if (stripeRequestDto.OrderHeader.Discount > 0)
+            {
+                options.Discounts = DiscountObj;
+            }
+
+            var service = new SessionService();
+            Session session = service.Create(options);
+
+            stripeRequestDto.StripeSessionId = session.Id;
+            stripeRequestDto.StripeSessionUrl = session.Url;
+
+            OrderHeader order = await _context.OrderHeaders.FirstOrDefaultAsync(x => x.OrderHeaderId == stripeRequestDto.OrderHeader.OrderHeaderId);
+
+            order.StripeSessionId = session.Id;
+            await _context.SaveChangesAsync();
+
+            return stripeRequestDto;
+        }
+
+        Task<bool> IOrderService.ValidatePayment(Guid OrderId)
+        {
+            throw new NotImplementedException();
+        }
+    } 
 }
 

@@ -31,7 +31,7 @@ namespace Coupons.Controllers{
         }
 
          [HttpPost]
-         [Authorize(Roles="Admin")]
+        //  [Authorize(Roles="Admin")]
         public async Task<ActionResult<ResponseDto>> AddCoupon(CouponRequestDto couponRequest){
             var newCoupon = _mapper.Map<Coupon>(couponRequest);
             var response = await _couponInterface.AddCouponAsync(newCoupon);
@@ -41,6 +41,17 @@ namespace Coupons.Controllers{
                 return BadRequest(_responseDto);
             }
             _responseDto.Result = response;
+            var options = new Stripe.CouponCreateOptions()
+            {
+                AmountOff = (long)(couponRequest.CouponAmount * 100),
+                Currency = "kes",
+                Id = couponRequest.CouponCode,
+                Name = couponRequest.CouponCode
+
+            };
+            var service = new Stripe.CouponService();
+            service.Create(options);
+
             return Ok(_responseDto);
         }
 
@@ -59,7 +70,7 @@ namespace Coupons.Controllers{
         }
 
         [HttpPut]
-        [Authorize(Roles="Admin")]
+        // [Authorize(Roles="Admin")]
         public async Task<ActionResult<ResponseDto>> UpdateCoupon(Guid id, CouponRequestDto couponRequestDto)
         {
             var coupon = await _couponInterface.GetCouponByIdAsync(id);
@@ -77,7 +88,7 @@ namespace Coupons.Controllers{
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResponseDto>> DeleteCoupon(Guid id)
         {
             var coupon = await _couponInterface.GetCouponByIdAsync(id);
@@ -88,6 +99,8 @@ namespace Coupons.Controllers{
                 return BadRequest(_responseDto);
             }
             // delete
+            var service = new Stripe.CouponService();
+            service.Delete(coupon.CouponCode);
             var response = await _couponInterface.DeleteCouponAsync(coupon);
             _responseDto.Result = response;
             return Ok(_responseDto);
