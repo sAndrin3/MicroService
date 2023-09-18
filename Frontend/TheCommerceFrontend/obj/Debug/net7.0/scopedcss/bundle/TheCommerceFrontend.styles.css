@@ -1,0 +1,17 @@
+/* /Shared/MainLayout.razor.rz.scp.css */
+.container1[b-d5ope2bqku]{
+    display: flex;
+    flex-direction: column;
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+.header[b-3fikkflxni]{
+    background: #007bff;
+    height: 4rem;
+    width: 100%;
+    color: #fff;
+    padding: 10px 0;
+    /* display: flex; */
+    margin-bottom: 10px;
+    /* text-align: center; */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

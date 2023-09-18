@@ -6,6 +6,7 @@ using orders.Services.IService;
 using Order.Data;
 using Stripe.Checkout;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 namespace orders.Services
 {
@@ -87,10 +88,41 @@ namespace orders.Services
             return stripeRequestDto;
         }
 
-        Task<bool> IOrderService.ValidatePayment(Guid OrderId)
+         public async  Task<bool> ValidatePayment(Guid OrderId)
         {
-            throw new NotImplementedException();
+            OrderHeader order = await _context.OrderHeaders.FirstOrDefaultAsync(x => x.OrderHeaderId == OrderId);
+
+            var service = new SessionService();
+            Session session = service.Get(order.StripeSessionId);
+
+            var paymentIntentService = new PaymentIntentService();
+            var id = session.PaymentIntentId;
+            if(id==null)
+            {
+                return false;
+            }
+            PaymentIntent paymentInt = paymentIntentService.Get(id);
+
+            if (paymentInt.Status == "succeeded")
+            {
+                order.PaymentIntentId = paymentInt.Id;
+                order.Status = "Approved";
+                await  _context.SaveChangesAsync();
+                // var rewards = new RewardsDto()
+                // {
+                //     Email = "superdomestique254@gmail.com",
+                //     TotalAmount = (int)order.OrderTotal,
+                //     UserId = order.UserId
+                 return true;
+                };
+                //Communicate with Rewards Topic
+                // await _messageBus.PublishMessage(rewards, "ordertopic");
+               
+                 return false;
+            }
+           
+
         }
     } 
-}
+
 

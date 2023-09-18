@@ -41,7 +41,7 @@ namespace JituProduct.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResponseDto>> AddProduct(ProductRequestDto productRequestDto)
         {
             try
@@ -93,7 +93,7 @@ namespace JituProduct.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResponseDto>> UpdateCoupon(Guid id, ProductRequestDto productRequestDto)
         {
             try
@@ -121,7 +121,7 @@ namespace JituProduct.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResponseDto>> DeleteProduct(Guid id)
         {
             try

@@ -56,5 +56,22 @@ namespace Order.Controllers
             }
             return Ok(_responseDto);
         }
+
+         [HttpPost("ValidatePayment")]
+        public async Task<ActionResult<ResponseDto>> ValidatePayment(Guid orderId)
+        {
+            try
+            {
+               var response =await _orderService.ValidatePayment(orderId);
+                _responseDto.Result=response;   
+            }
+            catch (Exception ex)
+            {
+                _responseDto.IsSuccess = false;
+                _responseDto.Message = ex.Message;
+                return BadRequest(_responseDto);
+            }
+            return Ok(_responseDto);
+        }
     }
 }
