@@ -8,7 +8,7 @@ namespace TheCommerceFrontend.Services.Product
     public class ProductService : IProductInterface
     {
         private readonly HttpClient _httpClient;
-        private readonly string BASEURL = "https://localhost:7004"; 
+        private readonly string BASEURL = "http://localhost:7004"; 
         public ProductService(HttpClient httpClient)
         {
 
