@@ -1,10 +1,28 @@
 ﻿@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider authProvider
+@inject ILocalStorageService localStorage
 <div class="header">
     <h1>Groopl Commerce</h1>
-    <div class="flex-row">
-        <button class="btn btn-primary" @onclick="login">Login</button>
-        <button class="btn btn-primary" @onclick="register">Register</button>
-        <button class="btn btn-danger">Logout</button>
+    <div class="flex-row p-2">
+        <AuthorizeView>
+                <Authorized>
+                    <a href="coupons" class="btn bg-black text-white">Coupon</a>
+                    <a class="btn bg-black text-white">Cart</a>
+                </Authorized>
+        </AuthorizeView>
+    </div>
+
+    <div class="flex-row p-2">
+        <AuthorizeView>
+                <Authorized>
+                    <button class="btn btn-danger" @onclick="logout">Logout</button>
+                </Authorized>
+
+                    <NotAuthorized>
+                        <button class="btn btn-primary" @onclick="login">Login</button>
+                        <button class="btn btn-primary" @onclick="register">Register</button>
+                    </NotAuthorized>
+        </AuthorizeView>
     </div>
 </div>
 
@@ -18,4 +36,9 @@
         navigationManager.NavigateTo("login");
     }
     
+    private async Task logout(){
+        await localStorage.RemoveItemAsync("authToken");
+        await authProvider.GetAuthenticationStateAsync();
+        navigationManager.NavigateTo("");
+    }
 }

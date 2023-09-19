@@ -1,8 +1,8 @@
 @page "/login"
 @inject IAuthInterface authInterface
-@* @inject ILocalStorageService localStorage
+@inject ILocalStorageService localStorage
 @inject AuthenticationStateProvider authProvider
-@inject NavigationManager navigationManager *@
+@inject NavigationManager navigationManager
 <div class="row mt-10">
     <div class="col-6">
         <img class="h-100 w-100" src="https://cdn.pixabay.com/photo/2014/11/21/03/27/quairaing-540122_640.jpg" />
@@ -45,12 +45,12 @@
         var res = await authInterface.Login(user);
         Console.WriteLine(res.Token);
 
-        @* if (!string.IsNullOrWhiteSpace(res.Token))
+        if (!string.IsNullOrWhiteSpace(res.Token))
         {
             await localStorage.SetItemAsStringAsync("authToken", res.Token);
             await authProvider.GetAuthenticationStateAsync();
             navigationManager.NavigateTo("");
-        } *@
+        }
 
 
     }

@@ -1,0 +1,65 @@
+@page "/coupons"
+@inject ICouponInterface couponInterface
+@inject NavigationManager navigationManager;
+
+@if (isLoading) {
+    <p><i>Loading...</i></p>
+}
+else{
+     <div class="row mb-4">
+            <div class="col-6">
+                Coupon  List
+            </div>
+            <div class="col-6 text-end">
+                <a href="addCoupon" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> &nbsp; Add Coupon
+                </a>
+            </div>
+        </div>
+   @if(coupons.Count > 0){
+     <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coupon Code</th>
+                    <th scope="col">Coupon Amount</th>
+                    <th scope="col">Coupon Min Amount</th>
+                        <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var coupon in coupons){
+                    <tr>
+                    <th scope="row">@coupon.CouponId</th>
+                    <td>@coupon.CouponCode</td>
+                    <td>@coupon.CouponAmount</td>
+                    <td>@coupon.CouponMinAmount</td>
+                    <td>
+                        <a class="btn btn-primary" href="/addCoupon/@coupon.CouponCode"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <button class="btn btn-danger" @onclick=@(()=>deleteCoupon(coupon.CouponId))><i class="bi bi-trash3-fill"></i>Delete</button>
+                    </td>
+                </tr>
+                }
+                </tbody>
+                </table>
+   }
+   else{
+        <p><i>No coupons found!</i></p>
+    }
+}
+@code {
+    private bool isLoading = true;
+
+    private List<Coupon> coupons = new List<Coupon>();
+
+    protected override async Task OnInitializedAsync(){
+        coupons = await couponInterface.GetCouponsAsync();
+        isLoading = false;
+    }
+
+    private async Task deleteCoupon(Guid id){
+        var res = await couponInterface.DeleteCoupon(id);
+        coupons = await couponInterface.GetCouponsAsync();
+        navigationManager.NavigateTo("coupons");
+    }
+}

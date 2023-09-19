@@ -18,6 +18,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
 });
 
+builder.Services.AddCors(options => options.AddPolicy("policy1", build =>{
+    build.WithOrigins("http://localhost:5120");
+    build.AllowAnyHeader();
+    build.AllowAnyMethod();
+}
+));
+
 // Register Service
 builder.Services.AddScoped<ICouponInterface, CouponService>();
 
@@ -43,7 +50,7 @@ app.UseMigration();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseCors("policy1");
 app.MapControllers();
 
 app.Run();

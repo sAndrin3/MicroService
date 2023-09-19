@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cw7bvI2ZfBucUlclibaWclomFXJK5Sw8/VPMIiJltVY=",
+  "Hash": "2GPkc9g6GRhdkP0yg5tfsSq2opFPCzlXXTMhg8pT3xg=",
   "Source": "TheCommerceFrontend",
   "BasePath": "/",
   "Mode": "Root",
@@ -7257,6 +7257,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/index.html"
+    },
+    {
+      "Identity": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Frontend/TheCommerceFrontend/wwwroot/Js/index.js",
+      "SourceId": "TheCommerceFrontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Frontend/TheCommerceFrontend/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "Js/index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Js/index.js"
     },
     {
       "Identity": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/microservices/Frontend/TheCommerceFrontend/wwwroot/sample-data/weather.json",

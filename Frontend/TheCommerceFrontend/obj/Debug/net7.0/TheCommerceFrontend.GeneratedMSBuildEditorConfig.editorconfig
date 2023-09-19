@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/AddCoupon.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRkQ291cG9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/DisplayCoupons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGlzcGxheUNvdXBvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
