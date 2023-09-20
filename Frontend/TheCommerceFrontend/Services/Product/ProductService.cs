@@ -51,7 +51,7 @@ namespace TheCommerceFrontend.Services.Product
 
         public async  Task<ProductDto> GetProductByIdAsync(Guid id)
         {
-            var response = await _httpClient.GetAsync($"{BASEURL}/api/Product/GetById/{id}");
+            var response = await _httpClient.GetAsync($"{BASEURL}/api/Product/GetById({id})");
             var content = await response.Content.ReadAsStringAsync();
 
             var results = JsonConvert.DeserializeObject<ResponseDto>(content);

@@ -1,6 +1,7 @@
+@using Microsoft.AspNetCore.Authorization
 @page "/addCoupon"
 @page "/addCoupon/{code}"
-@* @attribute [Authorize] *@
+@attribute [Authorize]
 @inject NavigationManager navigationManager;
 @inject ICouponInterface couponInterface;
 <div class="row mt-10">
@@ -90,12 +91,12 @@
         }
     }
 
-    @* protected override async  Task OnParametersSetAsync(){
+    protected override async  Task OnParametersSetAsync(){
 
         if (!string.IsNullOrWhiteSpace(code))
         {
-            selectedCoupon = await couponInterface.GetCouponsAsync(code);
-        } *@
+            selectedCoupon = await couponInterface.GetCouponAsync(code);
+        }
 
     }
 

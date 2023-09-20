@@ -11,6 +11,6 @@ namespace Auth.Models.Dtos{
         public string Password {get; set; } = string.Empty;
         [Required]
         public string PhoneNumber {get; set; } = string.Empty;
-        public string? Role {get; set; } =string.Empty;
+        public string? Role {get; set; } ="admin";
     }
 }

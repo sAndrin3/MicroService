@@ -48,9 +48,10 @@ else
                             <br />
                             @if (authenticated && role == "Admin")
                             {
-                                <a href="product/update/@product.ProductId" class="p-4">update</a>
+                                <button @onclick="(() => NavigateToUpdateProduct(product.ProductId))" class="btn btn-primary btn-lg p-2"
+                                    style="margin-right: 10px;"><i class="bi bi-pencil-square"></i> Update</button>
+                                <button @onclick="@(()=>deleteProduct(product.ProductId))" class="btn btn-danger btn-lg">Delete</button>
 
-                                <button @onclick="@(()=>deleteProduct(product.ProductId))" class="btn btn-danger">Delete</button>
                             }
                         </div>
 
@@ -73,8 +74,8 @@ else
     private bool isLoading = true;
     private string role { get; set; }
     private bool authenticated { get; set; }
-    @* [CascadingParameter] *@
-    @* public Task<AuthenticationState> _authState { get; set; } *@
+    [CascadingParameter]
+    public Task<AuthenticationState> _authState { get; set; }
 
     protected override async  Task OnInitializedAsync()
     {
@@ -84,10 +85,10 @@ else
         products = await productInterface.GetProductsAsync();
         isLoading = false;
         Console.WriteLine(products.Count);
-        @* var authState = await _authState; *@
-        @* role = authState.User.FindFirst("role")?.Value; *@
-        @* authenticated = authState.User.Identity.IsAuthenticated; *@
-        @* Console.WriteLine(authenticated); *@
+        var authState = await _authState;
+        role = authState.User.FindFirst("role")?.Value;
+        authenticated = authState.User.Identity.IsAuthenticated;
+        Console.WriteLine(authenticated);
     }
 
 
@@ -100,5 +101,11 @@ else
     {
         await productInterface.deleteProduct(id);
     }
+    private void NavigateToUpdateProduct(Guid productId)
+{
+    // Use the NavigationManager to navigate to the update page
+    navigationManager.NavigateTo($"product/update/{productId}");
+}
+
 
 }

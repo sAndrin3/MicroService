@@ -1,0 +1,124 @@
+@using Microsoft.AspNetCore.Authorization
+@page "/product/add"
+@page "/product/update/{id}"
+@attribute [Authorize]
+
+@inject NavigationManager navigationManager
+@inject IProductInterface productInterface;
+
+
+<div class="row m-2">
+    <div class="col-6">
+        @if (string.IsNullOrWhiteSpace(product.ImageUrl))
+        {
+            <img class="h-100 w-100" src="https://media.istockphoto.com/id/1558208045/photo/concept-add-to-cart-online-shopping-ecommerce-and-delivery-service-abstract-scheme-on-wooden.webp?b=1&s=612x612&w=0&k=20&c=12np1wCaW-xX-2e63ilm5D3un8_sehBZBVpUQ-7p5y8=" />
+        }
+        else
+        {
+            <img class="h-100 w-100" src="@product.ImageUrl" />
+        }
+    </div>
+
+    <div class="col-6">
+        @if (string.IsNullOrWhiteSpace(product.Name))
+        {
+            <h1> Add Product</h1>
+        }
+        else
+        {
+            <h1> Update Product</h1>
+        }
+       
+        <EditForm Model="@product" OnValidSubmit="AddUpdateProduct">
+            <DataAnnotationsValidator />
+            <div class="form-group p-2">
+                <label for="name">Name</label>
+                <InputText type="text" class="form-control p-2" id="name" @bind-Value="@product.Name" aria-describedby="name" />
+                <ValidationMessage For="@(()=>product.Name)" />
+            </div>
+
+            <div class="form-group p-2">
+                <label for="name">Description</label>
+                <InputText type="text" class="form-control p-2" id="email" @bind-Value="@product.Description" aria-describedby="name" />
+                <ValidationMessage For="@(()=>product.Description)" />
+            </div>
+
+            <div class="form-group p-2">
+                <label for="name">Category Name</label>
+                <InputText type="text" class="form-control p-2" id="email" @bind-Value="@product.CategoryName" aria-describedby="name" />
+                <ValidationMessage For="@(()=>product.CategoryName)" />
+            </div>
+
+            <div class="form-group p-2">
+                <label for="Phone">Price</label>
+                <InputNumber class="form-control p-2" id="Phone" @bind-Value="@product.Price" aria-describedby="name" />
+                <ValidationMessage For="@(()=>product.Price)" />
+            </div>
+
+            <div class="form-group p-2">
+                <label for="password">ImageURl</label>
+                <InputText type="text" class="form-control p-2" id="password" @bind-Value="@product.ImageUrl" aria-describedby="name" />
+                <ValidationMessage For="@(()=>product.ImageUrl)" />
+            </div>
+
+            <div class="flex-row m-2" p-2>
+                @if (product.ProductId == Guid.Empty)
+                {
+                    <button type="submit" style="width:150px" class=" p-2 m-1 btn btn-primary">Add Product</button>
+                }
+                else
+                {
+                <button type="submit" style="width:150px" class=" p-2 m-1 btn btn-primary">Update Product</button>
+                }
+                <button type="button" style="width:100px" @onclick="(()=>new ProductDto())" class="p-2 btn btn-secondary">Reset</button>
+            </div>
+            
+        </EditForm>
+
+    </div>
+</div>
+
+@code {
+
+
+
+    [Parameter]
+    public  string? Id { get; set; }
+
+    ProductDto product  = new ProductDto();
+
+
+    private async Task AddUpdateProduct()
+    {
+        ProductRequestDto theproduct = new ProductRequestDto
+        {
+            ImageUrl=product.ImageUrl,
+            Name=product.Name,
+            Description= product.Description,
+            Price= product.Price,
+            CategoryName=product.CategoryName
+        };
+
+        if (product.ProductId == Guid.Empty || product.ProductId == null)
+        {
+
+            var res = await productInterface.AddProduct(theproduct);
+            navigationManager.NavigateTo("");
+        }
+        else
+        {
+            //update
+            var res = await productInterface.updateProduct(product.ProductId, theproduct);
+            navigationManager.NavigateTo("");
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(Id))
+        {
+            product = await productInterface.GetProductByIdAsync(Guid.Parse(Id));
+        }
+       
+    }
+}

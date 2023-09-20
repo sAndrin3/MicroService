@@ -54,7 +54,7 @@
     private async Task registerUser()
     {
         var res = await authInterface.Register(newUser);
-        await jsRuntime.InvokeVoidAsync("ShowAlert", "success", res.Result);
+        @* await jsRuntime.InvokeVoidAsync("ShowAlert", "success", res.Result); *@
         Console.WriteLine(res.Result);
         
     }
