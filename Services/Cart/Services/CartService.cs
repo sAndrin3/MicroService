@@ -29,21 +29,21 @@ namespace Cart.Services{
             return true;
         }
 
-        public async Task<bool> CartUpsert(CartDto cartDto){
-             CartHeader CartHeaderFromDb = await _appDbContext.CartHeaders.FirstOrDefaultAsync(x => x.UserId ==
+          public async Task<bool> CartUpsert(CartDto cartDto)
+        {
+            //is this the first item the user has added to the Database?
+            CartHeader CartHeaderFromDb = await _appDbContext.CartHeaders.FirstOrDefaultAsync(x => x.UserId ==
             cartDto.CartHeader.UserId
             );
-           
-       
             if (CartHeaderFromDb == null)
             {
-                 System.Console.WriteLine("xghxg"); 
+                // Create a Cart Header and CartDetails
                 var newCartHeader = _mapper.Map<CartHeader>(cartDto.CartHeader);
-                _appDbContext.CartHeaders.Add(newCartHeader);
+                 _appDbContext.CartHeaders.Add(newCartHeader);
                 await _appDbContext.SaveChangesAsync();
 
-                // Use the Id above for CartDetails
-                // Assign CartHeaderId
+                //Use the Id above for CartDetails
+                //assign CartHeaderId
                 cartDto.CartDetails.First().CartHeaderId = newCartHeader.CartHeaderId;
                 var cartDetails = _mapper.Map<CartDetails>(cartDto.CartDetails.First());
                 _appDbContext.CartDetails.Add(cartDetails);
@@ -51,25 +51,45 @@ namespace Cart.Services{
 
                 return true;
             }
-            // else {
-            //     // Either Adding a new item or Updating the count of an Existing item
-            //     CartDetails cartDetailsFromDb = await _appDbContext.CartDetails.AsNoTracking().FirstOrDefaultAsync(x=>x.ProductId==
-            //     cartDto.CartDetails.First().ProductId && x.CartHeaderId==CartHeaderFromDb.CartHeaderId);
+            else
+            {
+                // I'm either Adding a new Item or updating the count of an Existing Item
+                CartDetails CartDetailsFromDb = await _appDbContext.CartDetails.AsNoTracking().FirstOrDefaultAsync(x=>x.ProductId==
+                cartDto.CartDetails.First().ProductId && x.CartHeaderId==CartHeaderFromDb.CartHeaderId);
 
-            //     if(cartDetailsFromDb == null){
-            //         // Different product
-            //         cartDto.CartDetails.First().CartHeaderId = cartDetailsFromDb.CartHeaderId;
-            //         var cartDetails = _mapper.Map<CartDetails>(cartDto.CartDetails.First());
-            //         _appDbContext.CartDetails.Add(cartDetails);
-            //         await _appDbContext.SaveChangesAsync();
-            //     }
-            //     else{
-            //         cartDetailsFromDb.Count += cartDto.CartDetails.First().Count;
-            //         _appDbContext.CartDetails.Update(cartDetailsFromDb);
-            //         await _appDbContext.SaveChangesAsync();
-            //     }
-            //     return true;
-            // }
+                if (CartDetailsFromDb == null)
+                {
+                    //its a different Product
+                    cartDto.CartDetails.First().CartHeaderId = CartHeaderFromDb.CartHeaderId;
+                    var cartDetails = _mapper.Map<CartDetails>(cartDto.CartDetails.First());
+                    _appDbContext.CartDetails.Add(cartDetails);
+                    await _appDbContext.SaveChangesAsync();
+
+                }
+                else
+                {
+                    var count = CartDetailsFromDb.Count;
+                    if (( count+= cartDto.CartDetails.First().Count )< 1)
+                    {
+                        var itemsCount = _appDbContext.CartDetails.Where(c => c.CartHeaderId == CartDetailsFromDb.CartHeaderId).Count();
+                        if (itemsCount == 1)
+                        {
+                            _appDbContext.CartHeaders.Remove(_appDbContext.CartHeaders.FirstOrDefault(x => x.CartHeaderId == CartDetailsFromDb.CartHeaderId));
+                        }
+                        _appDbContext.CartDetails.Remove(CartDetailsFromDb);
+                        await _appDbContext.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        CartDetailsFromDb.Count += cartDto.CartDetails.First().Count;
+                        _appDbContext.CartDetails.Update(CartDetailsFromDb);
+                        await _appDbContext.SaveChangesAsync();
+                    }
+                    //updating Count 
+                }
+
+                return true;
+            }
             return false;
         }
 
