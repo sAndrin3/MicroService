@@ -4,6 +4,7 @@ using TheCommerceFrontend;
 using TheCommerceFrontend.Services.Auth;
 using TheCommerceFrontend.Services.Coupons;
 using TheCommerceFrontend.Services.Product;
+using TheCommerceFrontend.Services.Cart;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using TheCommerceFrontend.Services.AuthProvider;
@@ -21,6 +22,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<IProductInterface, ProductService>();
 builder.Services.AddScoped<IAuthInterface, AuthService>();
 builder.Services.AddScoped<ICouponInterface, CouponService>();
+builder.Services.AddScoped<ICartInterface, CartService>();
 
 // Authprovider configuration
 builder.Services.AddOptions();

@@ -53,7 +53,7 @@ namespace Cart.Controllers
 
 
         [HttpDelete]
-        public async Task<ActionResult<ResponseDto>> RemoveFromCart([FromBody] Guid cartDetailsId)
+        public async Task<ActionResult<ResponseDto>> RemoveFromCart(Guid cartDetailsId)
         {
             try
             {

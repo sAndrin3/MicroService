@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRkUHJvZHVjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/DisplayCoupons.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGlzcGxheUNvdXBvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/ProductDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/microservices/Frontend/TheCommerceFrontend/Pages/Register.razor]

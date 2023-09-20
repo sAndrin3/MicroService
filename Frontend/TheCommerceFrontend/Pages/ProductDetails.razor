@@ -1,0 +1,71 @@
+@using Microsoft.AspNetCore.Authorization
+@page "/product/{Id}"
+@inject IProductInterface productInterface
+@inject ICartInterface CartInterface
+@attribute [Authorize]
+@if(@isLoading){
+    <p><i>Loading....</i></p>
+}else{
+<div class="container">
+        @if (product != null)
+        {
+            <div class="row">
+                <div class="col-5">
+                    <img src="@product.ImageUrl" class="h-100 w-100" />
+                </div>
+                <div class="col-5 p-2">
+                    <h1>@product.Name</h1>
+                    <p>@product.Description</p>
+                    <p>@product.Price.ToString("c0")</p>
+                    <input class="form-control" @bind-value="@count" />
+                    <button class="m-2 btn btn-primary" @onclick="AddToCart"> Add to Cart</button>
+                </div>
+            </div>
+        }
+    </div>
+
+}
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    private ProductDto product { get; set; } = new ProductDto();
+
+    private bool isLoading = true;
+
+    private int count { get; set; } = 1;
+    [CascadingParameter]
+    public Task<AuthenticationState> _authState { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+       
+            product = await productInterface.GetProductByIdAsync(Guid.Parse(Id));
+        
+        isLoading = false;
+    }
+
+    private async Task AddToCart()
+    {
+        var authState = await _authState;
+        var userID= authState.User.FindFirst("sub")?.Value;
+        var cartDto = new CartDto()
+            {
+                CartHeader =new CartHeaderDto()
+                {
+                    UserId = Guid.Parse(userID),
+                    CouponCode = ""
+                },
+            
+                CartDetails = new List<CartDetailsDto>()
+            {
+                new CartDetailsDto()
+                {
+                    ProductId=product.ProductId,
+                    Count=count
+                }
+            }
+            };
+       await CartInterface.AddToCart(cartDto);
+    }
+}
