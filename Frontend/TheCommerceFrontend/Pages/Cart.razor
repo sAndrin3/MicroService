@@ -49,11 +49,12 @@ else
                     </div>
                     <div class="col-3 col-md-2 pt-md-4 flex-row" style="font-size:11px;">
                         @*<span style="font-size:17px;">@item.Count</span>*@
-                        <div class="flex-row">
-                            <button class="btn btn-danger" @onclick="@(()=>decrement(item))">Minus</button>
-                            <input @bind-value="@item.Count" />
-                            <button class="btn btn-success" @onclick="@(()=>updateCount(item))">Add</button>
+                     <div class="flex-row">
+                         <button class="btn btn-danger flex-grow-0" @onclick="@(()=>decrement(item))">-</button>
+                         <input class="form-control text-center flex-grow-1" @bind-value="@item.Count" />
+                         <button class="btn btn-success flex-grow-0" @onclick="@(()=>updateCount(item))">+</button>
                     </div>
+
                     </div>
                     <div class="col-2 col-lg-1 p-0 pt-lg-4 text-center">
                         <a @onclick="@(()=>RemoveItem(item.CartDetailsId))">
