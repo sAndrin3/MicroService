@@ -110,17 +110,18 @@ namespace Cart.Services{
                 item.Product= products.FirstOrDefault(x=>x.ProductId==item.ProductId);
                 cart.CartHeader.CartTotal += (int) (item.Count * item.Product.Price);
             }
-             //Apply Coupon
-            // if (!string.IsNullOrWhiteSpace(cart.CartHeader.CouponCode))
-            // {
-            //     //there is a coupon
-            //     var coupon = await _couponService.GetCouponData(cart.CartHeader.CouponCode);
-            //     if(coupon != null && cart.CartHeader.CartTotal> coupon.CouponMinAmont) 
-            //     {
-            //         cart.CartHeader.CartTotal -= coupon.CouponAmount;
-            //         cart.CartHeader.Discount=coupon.CouponAmount;
-            //     }
-            // }
+            //  Apply Coupon
+            if (!string.IsNullOrWhiteSpace(cart.CartHeader.CouponCode))
+            {
+                //there is a coupon
+                var coupon = await _couponService.GetCouponData(cart.CartHeader.CouponCode);
+                Console.WriteLine(coupon.CouponAmount);
+                if(coupon != null && cart.CartHeader.CartTotal> coupon.CouponMinAmont) 
+                {
+                    cart.CartHeader.CartTotal -= coupon.CouponAmount;
+                    cart.CartHeader.Discount=coupon.CouponAmount;
+                }
+            }
             return cart;
         }
          public async Task<bool> RemoveFromCart(Guid CartDetailId)
